@@ -13,6 +13,7 @@ describe("Bank Deposit ", function() {
         var MyDeposit = new Deposit("RECURRING");
         var DepositType = MyDeposit.BankDeposit();
         expect(DepositType).toBe("RD");
-        expect(DepositType).not.toBe("FD");    expect(DepositType).not.toBe("Any value Other than 'RD' ");
+        expect(DepositType).not.toBe("FD");
+        expect(DepositType).not.toBe("Any value Other than 'RD' ");
     });
 });
