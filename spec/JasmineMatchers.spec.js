@@ -1,3 +1,18 @@
+/*
+    Scenario-1: The 'toMatch' matcher should be applied successfully for regular expressions
+    Scenario-2: The 'toEqual' matcher should be applied successfully for literals, variables, and objects
+    Scenario-3: The 'toBe' matcher should be applied successfully for literals, variables, and objects
+    Scenario-4: The 'toBeDefined' matcher should be applied successfully to compares against defined
+    Scenario-5: The 'toBeUndefined' matcher should be applied successfully to compares against undefined
+    Scenario-6: The 'toBeNull' matcher should be applied successfully to compare against null
+    Scenario-7: The 'toBeTruthy' matcher should be applied successfully for Boolean casting testing
+    Scenario-8: The 'toBeFalsy' matcher should be applied successfully for Boolean casting testing
+    Scenario-9: The 'toContain' matcher should be applied successfully for finding an item in an array
+    Scenario-10: The 'toBeLessThan' matcher should be applied successfully for mathematical comparisons
+    Scenario-11: The 'toBeGreaterThan' matcher should be applied successfully for mathematical comparisons
+    Scenario-12: The 'toBeCloseTo' matcher should be applied for precision math comparison
+*/
+
 describe("Jasmine Matchers", function() {
     // Scenario – 1
     it("'toMatch' matcher should be applied successfully for regular expressions", function() {
