@@ -11,12 +11,8 @@ var CurrencyConverter = function(number, fromCurrency, toCurrency, currencyExcha
             "USD": 0.0167,
             'JPY': 1.7756
         },
-        "HKD": {
-            "USD": 0.1289
-        },
-        "JPY": {
-            "USD": 0.5400
-        },
+        "HKD": {"USD": 0.1289, "INR": 8.0},
+        "JPY": {"USD": 0.5400, "INR": 0.0089},
         "AED": {
             "USD": 0.27
         },
