@@ -13,7 +13,18 @@ var Person = function(name, DOB, bloodgroup, donor_receiver) {
         this.myBloodGroup = personBloodGroup || this.myBloodGroup;
         return this.checkHIV(this.myName, this.myDOB, this.myBloodGroup);
     };
+    this.ValidateBloodGroup = function(callback) {
+        var _this = this;
+        var matchBloodGroup;
+        this.MatchBloodGroupToGiveReceive(function(personBloodGroup) {
+            _this.personBloodGroup = personBloodGroup;
+            matchBloodGroup = personBloodGroup;
+            callback.call(_this, _this.personBloodGroup);
+        });
+        return matchBloodGroup;
+    };
 };
+
 Person.prototype.getAge = function(birth) {
     console.log("getAge() function is called");
     var calculatedAge = 0;
@@ -22,6 +33,7 @@ Person.prototype.getAge = function(birth) {
     };
     return calculatedAge;
 };
+
 Person.prototype.checkHIV = function(pName, pDOB, pBloodGroup) {
     console.log("checkHIV() function is called");
     bolHIVResult = true;
@@ -29,6 +41,21 @@ Person.prototype.checkHIV = function(pName, pDOB, pBloodGroup) {
         throw new ValidationError("A person is infected with HIV+");
     };
     return bolHIVResult;
+};
+
+Person.prototype.MatchBloodGroupToGiveReceive = function(callback) {
+    var matchBloodGroup;
+    if (this.donor_receiver == null || this.donor_receiver == undefined) {
+        throw new ValidationError("Argument (donor_receiver) is missing ");
+    };
+    if (this.myBloodGroup == "O+" && this.donor_receiver.toUpperCase() == "RECEIVER") {
+        matchBloodGroup = ["O+"];
+    } else if (this.myBloodGroup == "O+" && this.donor_receiver.toUpperCase() == "DONOR") {
+        matchBloodGroup = ["A+"];
+    } else if (this.myBloodGroup == "B-" && this.donor_receiver.toUpperCase() == "RECEIVER") {
+        matchBloodGroup = ["B-", "O-"];
+    };
+    callback.call(this, matchBloodGroup);
 };
 
 function ValidationError(message) {
