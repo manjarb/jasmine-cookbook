@@ -21,6 +21,7 @@ TaxIndiaEmp.prototype.calculateTDS = function() {
     } else if (this.getIncome() > 1000000) {
         myTax = (this.getIncome() - 1000000) * 30 / 100;
         return myTax;
+    } else {
+        return myTax;
     }
-    return myTax;
 };
