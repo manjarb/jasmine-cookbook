@@ -10,6 +10,14 @@ function getTaxDetails() {
     } else {
         myGrossIncome = 0;
     }
+    //Get IRA Contribution
+    if ($("#taxIRAID").val() > 0) {
+        myIRAContribution = $("#taxIRAID").val();
+        myGrossIncome = myGrossIncome - Number(myIRAContribution);
+        $("#myAdjustedGrossIncome").html(myGrossIncome);
+    } else {
+        myIRAContribution = 0;
+    }
     if (myTaxFilingStatus != null) {
         myStandardDeduction = getStandardDeduction(myTaxFilingStatus);
         myGrossIncome = myGrossIncome - myStandardDeduction;
